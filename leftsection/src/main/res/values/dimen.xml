@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="lineStorkeWidth">1dp</dimen>
+    <dimen name="itemTextSize">13sp</dimen>
+    <dimen name="decTopMargin">20dp</dimen>
+    <dimen name="decLeftMargin">20dp</dimen>
+    <dimen name="decRightMargin">20dp</dimen>
+    <dimen name="textMarginHor">3dp</dimen>
+    <dimen name="textMarginVer">5dp</dimen>
+</resources>

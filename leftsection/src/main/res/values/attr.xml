@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LeftSectionRecyclerView">
+        <attr name="bgLineColor" format="color"/>
+        <attr name="itemTextColor" format="color"/>
+        <attr name="lineStorkeWidth" format="dimension"/>
+        <attr name="itemTextSize" format="dimension"/>
+        <attr name="decTopMargin" format="dimension"/>
+        <attr name="decLeftMargin" format="dimension"/>
+        <attr name="decRightMargin" format="dimension"/>
+        <attr name="textMarginHor" format="dimension"/>
+        <attr name="textMarginVer" format="dimension"/>
+    </declare-styleable>
+</resources>
