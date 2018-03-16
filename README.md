@@ -4,4 +4,19 @@
 
 使用RecyclerView 分组展示图片
 
-![](./images/sl_1.jpg)
+![](./images/sl_1.jpeg)
+
+## 使用
+
+```
+    allprojects {
+        repositories {
+            ...
+            maven { url "https://jitpack.io" }
+        }
+    }
+    
+      dependencies {
+           compile 'com.github.lx2308:LeftSectionRecyclerView:1.0'
+    }
+```
