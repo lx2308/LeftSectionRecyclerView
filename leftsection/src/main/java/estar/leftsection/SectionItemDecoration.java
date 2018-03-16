@@ -180,15 +180,17 @@ public class SectionItemDecoration extends RecyclerView.ItemDecoration {
             if (isC) {
                 for (int i1 = position + 1; i1 < adapter.getItemCount(); i1++) {
                     if (adapter.getItem(i1).isSection()) {
-                        int index = i1 - firstVisibleItem - 1;
-                        if (index < 0) {
-                            index = 0;
+
+                        View view = parent.getLayoutManager().findViewByPosition(i1 - 1);
+                        if (view != null) {
+                            bottom = view.getBottom() + dex4S;
                         }
-                        if (index <= lastVisibleItem) {
-                            bottom = parent.getChildAt(index).getBottom() + dex4S;
-                        }
-                        if (bottom < top&&bottom!=0) {
-                            bottom = parent.getChildAt(index + 1).getBottom() + dex4S;
+
+                        if (bottom < top && bottom != 0) {
+                            view = parent.getLayoutManager().findViewByPosition(i1);
+                            if (view != null) {
+                                bottom = view.getBottom() + dex4S;
+                            }
                         }
 
                         break;
@@ -204,7 +206,6 @@ public class SectionItemDecoration extends RecyclerView.ItemDecoration {
                 }
 
                 Rect rect = new Rect(left, top, right, bottom);
-
 
                 RectF rectF = new RectF(rect);
                 c.drawRect(rectF, paint);
@@ -250,7 +251,7 @@ public class SectionItemDecoration extends RecyclerView.ItemDecoration {
         int top = 0;
         int left = 0;
         int right = 0;
-        if (position > 0 && adapter.getItem(position - index).isSection()) {
+        if (adapter.getItem(position - index).isSection()) {
             top = (int) this.decTopMargin;
         }
 

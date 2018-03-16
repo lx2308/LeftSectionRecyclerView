@@ -32,6 +32,9 @@ public class TestActivity extends AppCompatActivity {
 
         List<ImageInfo> list = new ArrayList<>();
         list.add(new ImageInfo(true, "图组1"));
+        list.add(new ImageInfo(false, "图组1"));
+        list.add(new ImageInfo(false, "图组1"));
+
         list.add(new ImageInfo(true, "图组2"));
         list.add(new ImageInfo(false, "图组1"));
         list.add(new ImageInfo(false, "图组1"));
