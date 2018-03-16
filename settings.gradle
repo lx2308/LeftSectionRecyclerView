@@ -1,1 +1,1 @@
-include ':app', ':leftsection'
+include ':demo', ':leftsection'

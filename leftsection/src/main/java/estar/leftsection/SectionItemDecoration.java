@@ -187,7 +187,7 @@ public class SectionItemDecoration extends RecyclerView.ItemDecoration {
                         if (index <= lastVisibleItem) {
                             bottom = parent.getChildAt(index).getBottom() + dex4S;
                         }
-                        if (bottom < top) {
+                        if (bottom < top&&bottom!=0) {
                             bottom = parent.getChildAt(index + 1).getBottom() + dex4S;
                         }
 
