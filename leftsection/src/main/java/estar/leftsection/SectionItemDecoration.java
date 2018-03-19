@@ -251,7 +251,7 @@ public class SectionItemDecoration extends RecyclerView.ItemDecoration {
         int top = 0;
         int left = 0;
         int right = 0;
-        if (position!=0&&adapter.getItem(position - index).isSection()) {
+        if ((position-index)!=0&&adapter.getItem(position - index).isSection()) {
             top = (int) this.decTopMargin;
         }
 
