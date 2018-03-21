@@ -4,10 +4,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -64,7 +68,8 @@ public class TestActivity extends AppCompatActivity {
         int width = getResources().getDisplayMetrics().widthPixels;
         final int itemWidth = (int) (width - getResources().getDimension(R.dimen.dp_50));
 
-        sectionRecyclerView.setAdapter(new BaseSectionAdapter<ImageInfo, BaseViewHolder>(R.layout.item_image, list) {
+        BaseSectionAdapter adapter = null;
+        sectionRecyclerView.setAdapter(adapter = new BaseSectionAdapter<ImageInfo, BaseViewHolder>(R.layout.item_image, list) {
 
 
             @Override
@@ -95,5 +100,11 @@ public class TestActivity extends AppCompatActivity {
         });
 
 
+        adapter.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("test","positon="+position);
+            }
+        });
     }
 }

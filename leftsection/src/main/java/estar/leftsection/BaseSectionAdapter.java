@@ -53,6 +53,7 @@ public abstract class BaseSectionAdapter<T extends SupperSection, K extends Base
         } else {
             k = createGenericKInstance(z, view);
         }
+
         return k != null ? k : (K) new BaseViewHolder(view);
     }
 
@@ -116,6 +117,7 @@ public abstract class BaseSectionAdapter<T extends SupperSection, K extends Base
         View view = LayoutInflater.from(parent.getContext()).inflate(itemlayout,null);
         K k = createBaseViewHolder(view);
         k.setAdapter(this);
+        bindViewClickListener(k);
         return k;
     }
 
@@ -136,19 +138,45 @@ public abstract class BaseSectionAdapter<T extends SupperSection, K extends Base
     }
 
 
-    public AdapterView.OnItemClickListener getmOnItemClickListener() {
+    public AdapterView.OnItemClickListener getOnItemClickListener() {
         return mOnItemClickListener;
     }
 
-    public void setmOnItemClickListener(AdapterView.OnItemClickListener mOnItemClickListener) {
+    public void setOnItemClickListener(AdapterView.OnItemClickListener mOnItemClickListener) {
         this.mOnItemClickListener = mOnItemClickListener;
     }
 
-    public AdapterView.OnItemLongClickListener getmOnItemLongClickListener() {
+    public AdapterView.OnItemLongClickListener getOnItemLongClickListener() {
         return mOnItemLongClickListener;
     }
 
-    public void setmOnItemLongClickListener(AdapterView.OnItemLongClickListener mOnItemLongClickListener) {
+    public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener mOnItemLongClickListener) {
         this.mOnItemLongClickListener = mOnItemLongClickListener;
+    }
+
+    private void bindViewClickListener(final BaseViewHolder baseViewHolder) {
+        if (baseViewHolder == null) {
+            return;
+        }
+        final View view = baseViewHolder.itemView;
+        if (view == null) {
+            return;
+        }
+        if (getOnItemClickListener() != null) {
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getOnItemClickListener().onItemClick(null, v, baseViewHolder.getLayoutPosition(),v.getId());
+                }
+            });
+        }
+        if (getOnItemLongClickListener() != null) {
+            view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    return getOnItemLongClickListener().onItemLongClick(null, v, baseViewHolder.getLayoutPosition(),v.getId());
+                }
+            });
+        }
     }
 }
