@@ -17,6 +17,6 @@
     }
     
       dependencies {
-           compile 'com.github.lx2308:LeftSectionRecyclerView:1.0.1'
+           compile 'com.github.lx2308:LeftSectionRecyclerView:$version'
     }
 ```
